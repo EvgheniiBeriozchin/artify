@@ -5,8 +5,8 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:''@localhost/artify'
-app.config['SQLALCHEMY_TRACK_NOTIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/artify'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
