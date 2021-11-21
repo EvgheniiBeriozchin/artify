@@ -4,7 +4,7 @@ import MapboxGL from '@react-native-mapbox-gl/maps';
 import Markers from './Markers';
 
 MapboxGL.setAccessToken(
-  'pk.eyJ1IjoiZXZnaGVuaWliZXIiLCJhIjoiY2t3OGkwOGthMHU2ZTJ3cGFoNGFneXh5dCJ9.Pj_8PrQ3fzzv6oddHk-sAA',
+  'INSERT_ACCESS_TOKEN',
 );
 
 const Map = showPanel => {
