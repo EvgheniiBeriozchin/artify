@@ -35,33 +35,33 @@ const Markers = showPanel => {
     ],
   };
 
-  const getDescription = (id) => {
-      if (id === 1)
+  const getDescription = (id: string) => {
+    if (id === '1') {
       return {
         image: 'image1',
-        title: "Jugga Jugglers",
-        type: "Street performance",
-        address: "",
-        links: "instagram.com/jugga_jugglers\npatreon.com/jugga_jugglers",
-      }
-
-      if (id === 2)
+        title: 'Jugga Jugglers',
+        type: 'Street performance',
+        address: '',
+        links: 'instagram.com/jugga_jugglers n patreon.com/jugga_jugglers',
+      };
+    }
+    if (id === '2') {
       return {
         image: 'image2',
-        title: "Time for school",
-        type: "Street art",
-        address: "",
-        links: "instagram.com/munich_grafitti\n",
-      }
-
-      return {
-        image: 'image3',
-        title: "Santi Cazorla classical guitar",
-        type: "Street musician",
-        address: "",
-        links: "facebook.com/SantiCazorla",
-      }
-  }
+        title: 'Time for school',
+        type: 'Street art 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19',
+        address: '',
+        links: 'instagram.com/munich_grafitti\n',
+      };
+    }
+    return {
+      image: 'image3',
+      title: 'Santi Cazorla classical guitar',
+      type: 'Street musician',
+      address: '',
+      links: 'facebook.com/SantiCazorla',
+    };
+  };
 
   const icon = {
     iconAllowOverlap: true,
@@ -73,10 +73,10 @@ const Markers = showPanel => {
     //<>
     //<MapboxGL.Images images={images} />
     <MapboxGL.ShapeSource
-    id="exampleShareSource"
+      id="exampleShareSource"
       hitbox={{width: 20, height: 20}}
       onPress={e => {
-        console.log("onPress: ", e.features[0].id)
+        console.log('onPress: ', e.features);
         showPanel.showPanel.showPanel(getDescription(e.features[0].id));
         //console.log(e.features.at(0).properties.icon)
         if (e.features[0] && e.features[0].properties.icon === 'red') {
@@ -86,11 +86,11 @@ const Markers = showPanel => {
         }
       }}
       shape={data}>
-    <MapboxGL.SymbolLayer
+      <MapboxGL.SymbolLayer
         id="exampleIconName"
         //filter={['==', 'showPin', true]}
         style={icon}
-    />
+      />
     </MapboxGL.ShapeSource>
     //</>
   );

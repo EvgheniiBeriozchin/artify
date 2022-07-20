@@ -1,22 +1,29 @@
-from flask import Flask, jsonify, request
-from flask_sqlalchemy import SQLAlchemy
-from flask_marshmallow import Marshmallow
+from flask import Flask
 
-from datetime import datetime
-from components.PerformancePage import performance_page 
-from components.PerformancePage import db,ma
+from db.main import db, ma
+from api.performance_api import performance
+from .utils import get_db_uri
 
-app = Flask(__name__)
-app.register_blueprint(performance_page)
+def init_app():
+    app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/artify'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = get_db_uri()
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db.app = app
-db.init_app(app)
-ma.init_app(app)
+    db.app = app
+    db.init_app(app)
+    ma.init_app(app)
 
-db.create_all()
+    app.register_blueprint(performance, url_prefix='/performances')
+    print(app.url_map)
+
+    return app
+
+def init_db(app):
+    with app.app_context():
+        db.create_all()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app = init_app()
+    init_db(app)
+    app.run(host='0.0.0.0', port=3000, debug=True)
