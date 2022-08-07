@@ -4,4 +4,6 @@ __pycache__/
 .gittoken
 *.log
 frontend/package-lock.json
-setup.txt
+setup.yaml
+.idea/
+backend/.idea/

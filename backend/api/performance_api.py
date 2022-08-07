@@ -5,8 +5,9 @@ from db.main import db
 
 performance = Blueprint("performance", __name__)
 
+
 @performance.route('/get', methods=['GET'])
-def get_articles():
+def get_performances():
     all_articles = Performance.query.all()
     results = performance_schema.dump(all_articles)
     return jsonify(results) 
@@ -19,7 +20,7 @@ def performance_details(id):
 
 
 @performance.route('/post', methods=['POST'])
-def add_article():
+def add_performance():
     title = request.json['title']
     address = request.json['address']
     link = request.json['link']
