@@ -2,6 +2,7 @@ from flask import Flask
 
 from db.main import db, ma
 from api.performance_api import performance
+from api.artist_api import artist
 from utils import get_db_uri
 
 def init_app():
@@ -15,6 +16,7 @@ def init_app():
     ma.init_app(app)
 
     app.register_blueprint(performance, url_prefix='/performances')
+    app.register_blueprint(artist, url_prefix='/artists')
     print(app.url_map)
 
     return app
