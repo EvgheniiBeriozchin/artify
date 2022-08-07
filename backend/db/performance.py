@@ -2,6 +2,7 @@ from datetime import datetime
 
 from db.main import db, ma
 
+
 class Performance(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Text())
@@ -12,7 +13,6 @@ class Performance(db.Model):
     body = db.Column(db.Text)
     date = db.Column(db.DateTime, default=datetime.now())
 
-    
     def __init__(self, title, body):
         self.title = title
         self.body = body

@@ -2,7 +2,7 @@ from flask import Flask
 
 from db.main import db, ma
 from api.performance_api import performance
-from .utils import get_db_uri
+from utils import get_db_uri
 
 def init_app():
     app = Flask(__name__)

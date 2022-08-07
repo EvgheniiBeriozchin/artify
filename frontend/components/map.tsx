@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import {Platform, SafeAreaView, View} from 'react-native';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import Markers from './markers';
 import {baseContainerStyles} from './stylesheets';
 import RNLocation, {Location} from 'react-native-location';
